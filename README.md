@@ -7,13 +7,13 @@ This is Visual Studio Code launcher written in Go.
 # Installation
 
 ```bash
-go install github.com/shuymn/vscode-launcher-go
+go install github.com/shuymn/vscode-launcher-go@latest
 ```
 
 Then, it is recommend to set up your `.bashrc` or `.zshrc` as follows.
 
 ```bash
-alias code="vscode-launcher"
+alias code="vscode-launcher-go"
 ```
 
 # Motivation
