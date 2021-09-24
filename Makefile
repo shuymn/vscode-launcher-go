@@ -1,5 +1,3 @@
-BIN := vscode-launcher
-
 ifdef update
 	u=-u
 endif
@@ -8,8 +6,8 @@ export GO111MODULE=on
 
 all: build
 
-build: $(BIN).go clean
-	go build -ldflags="-s -w" $(BIN).go
+build: vscode-launcher_darwin.go clean
+	go build -ldflags="-s -w"
 
 .PHONY: deps
 deps:
@@ -22,4 +20,4 @@ test:
 
 .PHONY: clean
 clean:
-	@[ ! -f $(BIN) ] || rm $(BIN)
+	@[ ! -f vscode-launcher-go ] || rm vscode-launcher-go
