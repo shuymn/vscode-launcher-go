@@ -14,7 +14,13 @@ Then, it is recommend to set up your `.bashrc` or `.zshrc` as follows.
 
 ```bash
 alias code="vscode-launcher-go"
+alias code-insiders="vscode-launcher-go -insiders"
 ```
+
+# Usage
+
+- `vscode-launcher-go {args}`: Launch vscode normally.
+- `vscode-launcher-go -insiders {args}`: Launch vscode insiders.
 
 # Motivation
 
