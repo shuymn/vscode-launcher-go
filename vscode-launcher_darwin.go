@@ -63,7 +63,7 @@ func run(file string, args []string) ([]byte, error) {
 	electron := fmt.Sprintf("%s/MacOS/Electron", contents)
 	cli := fmt.Sprintf("%s/Resources/app/out/cli.js", contents)
 
-	args = append([]string{cli}, args...)
+	args = append([]string{"--ms-enable-electron-run-as-node", cli}, args...)
 	cmd := exec.Command(electron, args...)
 	cmd.Env = os.Environ()
 	cmd.Env = append(cmd.Env, "ELECTRON_RUN_AS_NODE=1")
