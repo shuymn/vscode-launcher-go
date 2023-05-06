@@ -16,6 +16,8 @@ import (
 
 	"github.com/yookoala/realpath"
 	"golang.org/x/exp/slices"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 const cmdName = "vscode-launcher-go"
@@ -110,7 +112,7 @@ func run(ctx context.Context, insiders, bypassPython, osProfile bool, argv []str
 	}
 
 	if osProfile && !slices.Contains(argv, "--profile") {
-		argv = append(argv, "--profile", strings.Title(runtime.GOOS))
+		argv = append(argv, "--profile", cases.Title(language.Und, cases.NoLower).String(runtime.GOOS))
 	}
 
 	code, err := getExecutablePath(insiders)
