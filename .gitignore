@@ -1,1 +1,6 @@
+# build artifacts
 vscode-launcher-go
+vscode-launcher-go.exe
+
+# goreleaser
+dist/
