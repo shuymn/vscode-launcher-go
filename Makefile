@@ -1,25 +1,21 @@
-ifdef update
-	u=-u
-endif
-
-export GO111MODULE=on
+u := $(if $(update),-u)
 
 all: build
 
 build: clean
-	go build -ldflags="-s -w"
+	CGO_ENABLED=0 go build -ldflags="-s -w"
 
 build-windows:
-	GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o vscode-launcher-go.exe
+	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -ldflags="-s -w"
 
 .PHONY: deps
 deps:
 	go get ${u} -d
 	go mod tidy
 
-.PHONY: test
-test:
-	go test -race ./...
+.PHONY: lint
+lint:
+	golangci-lint run ./...
 
 .PHONY: clean
 clean:
